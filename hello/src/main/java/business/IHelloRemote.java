@@ -1,4 +1,4 @@
-package hello;
+package business;
 
 import javax.ejb.Remote;
 
@@ -6,4 +6,5 @@ import javax.ejb.Remote;
 public interface IHelloRemote {
 
 	public void sayHello();
+	public int returnHashcode();
 }
