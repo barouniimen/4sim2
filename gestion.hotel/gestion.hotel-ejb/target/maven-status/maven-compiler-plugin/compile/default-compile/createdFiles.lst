@@ -1,0 +1,12 @@
+persistence\Receptionist.class
+persistence\ReservationPk.class
+persistence\Reservation.class
+business\IManageHotelsRemote.class
+persistence\Client.class
+persistence\Stars.class
+persistence\Employee.class
+persistence\Adress.class
+persistence\Hotel.class
+business\ManageHotels.class
+persistence\Agency.class
+persistence\Manager.class
