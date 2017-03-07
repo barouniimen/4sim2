@@ -1,5 +1,7 @@
 package persistence;
 
+import java.io.Serializable;
+
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -10,7 +12,7 @@ import javax.persistence.ManyToOne;
 @Entity
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 //@DiscriminatorColumn(name="discriminator")
-public class Employee {
+public class Employee implements Serializable{
 	private String cin;
 	private String firstName;
 	private String lastName;
