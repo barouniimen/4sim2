@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import persistence.Agency;
 import persistence.Employee;
@@ -49,8 +50,8 @@ public class ManageHotels implements IManageHotelsRemote {
 
 	@Override
 	public List<Hotel> getAllHotels() {
-		// TODO Auto-generated method stub
-		return null;
+		TypedQuery<Hotel> query = em.createQuery("Select h From Hotel h", Hotel.class);
+		return query.getResultList();
 	}
 
 	@Override

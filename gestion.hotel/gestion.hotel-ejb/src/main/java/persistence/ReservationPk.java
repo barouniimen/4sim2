@@ -1,22 +1,22 @@
 package persistence;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.Embeddable;
 
 @Embeddable
 public class ReservationPk implements Serializable{
 
-	private int idClient;
+	private String idClient;
 	private int idHotel;
 	private Date arrivalDate;
 
-	public int getIdClient() {
+	public String getIdClient() {
 		return idClient;
 	}
 
-	public void setIdClient(int idClient) {
+	public void setIdClient(String idClient) {
 		this.idClient = idClient;
 	}
 
@@ -41,7 +41,7 @@ public class ReservationPk implements Serializable{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((arrivalDate == null) ? 0 : arrivalDate.hashCode());
-		result = prime * result + idClient;
+		result = prime * result + ((idClient == null) ? 0 : idClient.hashCode());
 		result = prime * result + idHotel;
 		return result;
 	}
@@ -60,12 +60,17 @@ public class ReservationPk implements Serializable{
 				return false;
 		} else if (!arrivalDate.equals(other.arrivalDate))
 			return false;
-		if (idClient != other.idClient)
+		if (idClient == null) {
+			if (other.idClient != null)
+				return false;
+		} else if (!idClient.equals(other.idClient))
 			return false;
 		if (idHotel != other.idHotel)
 			return false;
 		return true;
 	}
+
+	
 	
 	
 
