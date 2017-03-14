@@ -1,5 +1,6 @@
 package persistence;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -18,7 +19,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "t_hotel")
-public class Hotel {
+public class Hotel implements Serializable{
 
 	private int id;
 	private String name;

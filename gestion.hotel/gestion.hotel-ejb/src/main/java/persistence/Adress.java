@@ -1,5 +1,7 @@
 package persistence;
 
+import java.io.Serializable;
+
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,11 +11,11 @@ import javax.persistence.OneToOne;
 
 //@Entity
 @Embeddable
-public class Adress {
+public class Adress implements Serializable{
 
 	//private int id;
 	private String city;
-	private int zipCode;
+	private Integer zipCode;
 	//private Hotel hotel;
 	
 	
@@ -23,10 +25,10 @@ public class Adress {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public int getZipCode() {
+	public Integer getZipCode() {
 		return zipCode;
 	}
-	public void setZipCode(int zipCode) {
+	public void setZipCode(Integer zipCode) {
 		this.zipCode = zipCode;
 	}
 	

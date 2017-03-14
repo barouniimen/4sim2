@@ -1,5 +1,6 @@
 package persistence;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -9,7 +10,7 @@ import javax.persistence.OneToMany;
 
 
 @Entity
-public class Client {
+public class Client implements Serializable{
 	
 	private String cin;
 	private String firstName;
