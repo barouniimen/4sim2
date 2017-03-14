@@ -32,12 +32,11 @@ public class ManageHotels implements IManageHotelsRemote {
 
 	@Override
 	public void updateHotel(Hotel hotel) {
-		em.merge(hotel);
+		em.merge(hotel);	
 	}
 
 	@Override
 	public Hotel getById(int id) {
-
 		return em.find(Hotel.class, id);
 	}
 
