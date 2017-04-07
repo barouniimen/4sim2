@@ -20,5 +20,6 @@ public interface IManageHotelsRemote {
 	void addAgency(Agency agency);
 	void assignAgencyToHotel(Hotel hotel, Agency agency);
 	void addEmployee(Employee employee);
+	void assignHotelToAgency(Hotel hotel, Agency agency);
 	
 }

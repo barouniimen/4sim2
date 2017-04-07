@@ -37,7 +37,7 @@ public class Client implements Serializable{
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	@OneToMany(mappedBy="client")
+	@OneToMany(mappedBy="client",fetch=FetchType.EAGER)
 	public List<Reservation> getReservations() {
 		return reservations;
 	}

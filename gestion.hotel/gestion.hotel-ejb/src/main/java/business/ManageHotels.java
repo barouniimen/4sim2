@@ -33,7 +33,7 @@ public class ManageHotels implements IManageHotelsRemote {
 
 	@Override
 	public void updateHotel(Hotel hotel) {
-		em.merge(hotel);	
+		em.merge(hotel);
 	}
 
 	@Override
@@ -62,20 +62,28 @@ public class ManageHotels implements IManageHotelsRemote {
 
 	@Override
 	public void assignAgencyToHotel(Hotel hotel, Agency agency) {
-//		agency = em.find(Agency.class, agency.getId());
-//		agency.getHotels().add(hotel);
-//		il n'ya pas eu d'affectation, car agency est le bout slave
-		
+		// agency = em.find(Agency.class, agency.getId());
+		// agency.getHotels().add(hotel);
+		// il n'ya pas eu d'affectation, car agency est le bout slave
+
 		hotel = em.find(Hotel.class, hotel.getId());
 		hotel.getAgencies().add(agency);
 		// il y a eu affectation car hotel est le bout master
-		//P.S: pas besoin d'un merge après le add(agency) car l'entité hotel est managed
+		// P.S: pas besoin d'un merge après le add(agency) car l'entité hotel
+		// est managed
 	}
 
 	@Override
 	public void addEmployee(Employee employee) {
 		em.persist(employee);
-		
+
+	}
+
+	@Override
+	public void assignHotelToAgency(Hotel hotel, Agency agency) {
+		hotel = em.find(Hotel.class, hotel.getId());
+		hotel.getAgencies().add(agency);
+
 	}
 
 }

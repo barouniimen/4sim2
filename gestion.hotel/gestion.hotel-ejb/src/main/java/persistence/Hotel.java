@@ -79,7 +79,7 @@ public class Hotel implements Serializable{
 		this.agencies = agencies;
 	}
 
-	@OneToMany(mappedBy="hotel",fetch=FetchType.EAGER, cascade= CascadeType.ALL)
+	@OneToMany(mappedBy="hotel",fetch=FetchType.EAGER, cascade=CascadeType.REMOVE)
 	public List<Employee> getEmployees() {
 		return employees;
 	}
