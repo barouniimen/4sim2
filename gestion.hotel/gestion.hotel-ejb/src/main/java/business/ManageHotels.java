@@ -12,7 +12,7 @@ import persistence.Employee;
 import persistence.Hotel;
 
 @Stateless
-public class ManageHotels implements IManageHotelsRemote {
+public class ManageHotels implements IManageHotelsRemote, IManageHotelsLocal {
 
 	@PersistenceContext
 	EntityManager em;

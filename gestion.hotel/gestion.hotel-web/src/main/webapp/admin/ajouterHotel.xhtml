@@ -1,0 +1,29 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/template/template.xhtml">
+
+	<ui:include src="/includes/topbar.xhtml" />
+	<ui:define name="content">
+		<h:form>
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Nom" />
+				<h:inputText value="#{addHotelBean.name}" />
+				<h:outputLabel value="Etoiles" />
+				<h:selectOneMenu value="#{addHotelBean.selectStars}">
+					<f:selectItems value="#{addHotelBean.stars}" var="s"
+						itemLabel="#{s}" itemValue="#{s}">
+
+					</f:selectItems>
+				</h:selectOneMenu>
+				<h:outputLabel value="Citée" />
+				<h:inputText value="#{addHotelBean.city}" />
+				<h:outputLabel value="Code Postal" />
+				<h:inputText value="#{addHotelBean.zipCode}" />
+				<h:commandButton action="#{addHotelBean.addHotel()}" value="Ajouter" />
+			</h:panelGrid>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
