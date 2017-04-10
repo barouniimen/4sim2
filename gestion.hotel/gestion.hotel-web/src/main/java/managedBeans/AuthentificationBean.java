@@ -27,12 +27,23 @@ public class AuthentificationBean {
 	IManageClientLocal clientLocal;
 
 	public String authentifier() {
-		if (employeeLocal.authentification(login, password) instanceof Administrateur) {
-			return "/admin/home";
-		} else if (clientLocal.authentifierClient(login, password) instanceof Client) {
-			return "/client/home";
-		} else
-			return "/login";
+		try {
+			employeAuthentifie = employeeLocal.authentification(login, password);
+			if (employeAuthentifie instanceof Administrateur) {
+				return "/admin/home?faces-redirect=true";
+			}else
+				return "/employe/home?faces-redirect=true";
+
+		} catch (Exception e) {
+
+			try {
+				clientAuthentifie = clientLocal.authentifierClient(login, password);
+				return "/client/home?faces-redirect=true";
+
+			} catch (Exception e2) {
+				return "/login?faces-redirect=true";
+			}
+		}
 
 	}
 
