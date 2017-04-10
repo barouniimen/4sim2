@@ -1,0 +1,39 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
+
+	<ui:include src="/includes/topbar.xhtml" />
+
+	<ui:define name="content">
+		<h:form>
+			<h:dataTable rendered="#{!gererHotelsBean.isSelected}" border="2"
+				value="#{gererHotelsBean.hotels}" var="hotel">
+
+				<f:facet name="header">Liste des hotels</f:facet>
+				<h:column>
+					<f:facet name="header">Nom de l'hotel</f:facet>
+					<h:outputText value="#{hotel.name}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Nombre d'étoiles</f:facet>
+					<h:outputText value="#{hotel.stars}" />
+				</h:column>
+				<h:column>
+					<f:facet name="Selectionner">
+					</f:facet>
+					<h:commandButton value="Selectionner">
+						<f:setPropertyActionListener value="#{hotel}"
+							target="#{gererHotelsBean.selectedHotel}"></f:setPropertyActionListener>
+						<f:setPropertyActionListener value="true"
+							target="#{gererHotelsBean.isSelected}"></f:setPropertyActionListener>
+					</h:commandButton>
+				</h:column>
+			</h:dataTable>
+		</h:form>
+		<ui:include src="/admin/updateHotel.xhtml" />
+
+	</ui:define>
+
+</ui:composition>
