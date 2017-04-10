@@ -16,6 +16,8 @@ public class Employee implements Serializable{
 	private String cin;
 	private String firstName;
 	private String lastName;
+	private String login;
+	private String password;
 	private Hotel hotel;
 	
 	@Id
@@ -44,6 +46,18 @@ public class Employee implements Serializable{
 	}
 	public void setHotel(Hotel hotel) {
 		this.hotel = hotel;
+	}
+	public String getLogin() {
+		return login;
+	}
+	public void setLogin(String login) {
+		this.login = login;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 	

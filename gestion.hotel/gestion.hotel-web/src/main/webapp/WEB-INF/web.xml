@@ -9,5 +9,7 @@
   <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>*.jsf</url-pattern>
+    <url-pattern>*.xhtml</url-pattern>
+    <url-pattern>*.4sim2</url-pattern>
   </servlet-mapping>
 </web-app>

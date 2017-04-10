@@ -5,10 +5,12 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+
 import persistence.Client;
 import persistence.Reservation;
 @Stateless
-public class ManageClient implements IManageClientRemote {
+public class ManageClient implements IManageClientRemote, IManageClientLocal {
 	
 	@PersistenceContext
 	EntityManager em;
@@ -42,5 +44,14 @@ public class ManageClient implements IManageClientRemote {
 	public List<Reservation> findAllReservations(Client client) {
 		// TODO Auto-generated method stub
 		return em.find(Client.class, client.getCin()).getReservations();
+	}
+
+	@Override
+	public Client authentifierClient(String login, String pwd) {
+		TypedQuery<Client> query = em.createNamedQuery("login", Client.class);
+		
+		query.setParameter("login", login);
+		query.setParameter("pwd", pwd);
+		return query.getSingleResult();
 	}
 }
